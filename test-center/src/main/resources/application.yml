@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: test-center
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848

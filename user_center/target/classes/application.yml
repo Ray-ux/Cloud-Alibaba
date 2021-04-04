@@ -12,6 +12,8 @@ spring:
       discovery:
         server-addr: localhost:8848
         cluster-name: BJ
+        metadata:
+          version: v1
 mybatis:
   type-aliases-package: com.ray.domain.entity
   mapper-locations: classpath:mappers/*.xml
