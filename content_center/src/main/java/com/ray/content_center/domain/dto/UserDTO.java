@@ -8,7 +8,7 @@ import java.util.Date;
 public class UserDTO {
 
     private Integer id;
-    private String vxId;
+    private String wxId;
     private String wxNickname;
     private String roles;
     private String avatarUrl;

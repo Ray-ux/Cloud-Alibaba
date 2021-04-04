@@ -4,6 +4,7 @@ import com.ray.content_center.dao.content.ShareMapper;
 import com.ray.content_center.domain.dto.ShareDTO;
 import com.ray.content_center.domain.dto.UserDTO;
 import com.ray.content_center.domain.entity.Share;
+import com.ray.content_center.feignclient.UserCenterFeignClient;
 import com.ray.content_center.service.content.ShareService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -27,12 +28,15 @@ public class ShareServiceImpl implements ShareService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private UserCenterFeignClient userCenterFeignClient;
     @Override
     public ShareDTO findByShareId(Integer id) {
 
         Share share = shareMapper.selectById(id);
         Integer userId = share.getUserId();
-        UserDTO userDTO = restTemplate.getForObject("http://user-center/users/{userId}", UserDTO.class, userId);
+        UserDTO userDTO = userCenterFeignClient.findById(userId);
+//        UserDTO userDTO = restTemplate.getForObject("http://user-center/users/{userId}", UserDTO.class, userId);
 //        String str = restTemplate.getForObject("http://test-center/test", String.class);
 //        log.info("test-center={}", str);
         ShareDTO shareDTO = new ShareDTO();
