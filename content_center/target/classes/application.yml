@@ -10,10 +10,13 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-        cluster-name: BJ
-        metadata:
-          version: v1
-          target-version: v1
+#        cluster-name: BJ
+#        metadata:
+#          version: v1
+#          target-version: v1
+    sentinel:
+      transport:
+        dashboard: localhost:8080
 
   main:
     allow-bean-definition-overriding: true
