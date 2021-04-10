@@ -10,13 +10,16 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-#        cluster-name: BJ
-#        metadata:
-#          version: v1
-#          target-version: v1
+        cluster-name: BJ
+        metadata:
+          version: v1
+          target-version: v1
     sentinel:
       transport:
         dashboard: localhost:8080
+#      关闭掉springMVC端点的保护
+      filter:
+        enabled: true
 
   main:
     allow-bean-definition-overriding: true
@@ -25,16 +28,16 @@ mybatis:
   mapper-locations: classpath:mappers/*.xml
   configuration:
     map-underscore-to-camel-case: true
-user-center:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-logging:
-  level:
-    com:
-      ray:
-        content_center:
-          feignclient:
-            UserCenterFeignClient: debug
+#user-center:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#logging:
+#  level:
+#    com:
+#      ray:
+#        content_center:
+#          feignclient:
+#            UserCenterFeignClient: debug
 #feign:
 #  client:
 #    config:
@@ -53,4 +56,14 @@ management:
     web:
       exposure:
         include: '*'
-
+#resttemplate:
+#  sentinel:
+#    enabled: false
+#feign:
+#  sentinel:
+#    enabled: true
+#project:
+#  name: content-center
+#ahas:
+#  license: 6e8711d703d64b2f8e9641e3b210d2c2
+#  namespace: default

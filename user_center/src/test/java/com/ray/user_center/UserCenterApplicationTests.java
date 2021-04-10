@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
+
 @SpringBootTest
 class UserCenterApplicationTests {
 
@@ -17,5 +21,9 @@ class UserCenterApplicationTests {
         User byId = userService.findById(1);
         System.out.println(byId);
     }
+
+
+
+
 
 }

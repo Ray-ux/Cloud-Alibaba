@@ -14,8 +14,19 @@ spring:
         cluster-name: BJ
         metadata:
           version: v1
+
+#    sentinel:
+#      transport:
+#        dashboard: localhost:8080
+
 mybatis:
   type-aliases-package: com.ray.domain.entity
   mapper-locations: classpath:mappers/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
+#project:
+#  name: user-center
+#ahas:
+#  license: 6e8711d703d64b2f8e9641e3b210d2c2
+#  namespace: default
